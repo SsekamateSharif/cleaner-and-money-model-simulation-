@@ -86,38 +86,6 @@ plt.ylabel("NUMBER OF AGENTS") # y-axis label
 plt.grid(True, alpha = 0.3) # grid of the graph
 plt.show() # to show the graph
 
-N = 100
-# initialise positions
-x = np.random.rand(N)
-y = np.random.rand(N)
-# create figure
-fig, ax = plt.subplots()
-scat = ax.scatter(x, y)
-ax.set_xlim(0,1)
-ax.set_ylim(0,1)
-ax.set_title("Money Distribution")
-
-def update(frame):
-    global x,y
-    x += 0.05 * (np.random.rand(N) - 0.5)
-    y += 0.05 * (np.random.rand(N) - 0.5)
-
-    x = np.clip(x, 0, 1)
-    y = np.clip(y, 0, 1)
-    scat.set_offsets(np.column_stack((x, y)))
-    return scat,
-
-
-ani = FuncAnimation(
-    fig,
-    update,
-    frames = 200,
-    interval=100,
-    blit=True
-)
-plt.show()
-
-
 
 
 
